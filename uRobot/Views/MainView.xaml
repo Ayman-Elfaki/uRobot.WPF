@@ -1,0 +1,180 @@
+﻿<Window x:Class="uRobot.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:uRobot.Views"
+        mc:Ignorable="d"
+        Title="uRobot"
+        Height="620"
+        Width="920"
+        MinHeight="620"
+        MinWidth="920">
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.ColumnSpan="3">
+            <Border Background="DarkOrange">
+                <TextBlock Text="uRobot"
+                           FontSize="80"
+                           Foreground="White"
+                           HorizontalAlignment="Center"
+                           Margin="10"
+                           FontFamily="Showcard Gothic" />
+            </Border>
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Margin="10">
+                <TextBlock Text="Device:"
+                           Margin="5"
+                           VerticalAlignment="Center" />
+                <ComboBox x:Name="devicesComBox" Margin="5"
+                          Padding="5"
+                          Background="Orange"
+                          FontSize="15"
+                          MinWidth="150"
+                          VerticalAlignment="Center" />
+                <Button x:Name="refreshBtn"
+                        Margin="5"
+                        Background="Orange"
+                        Foreground="White"
+                        Content=""
+                        FontSize="18"
+                        Padding="5"
+                        VerticalAlignment="Center"
+                        FontFamily="Segoe MDL2 Assets" />
+                <Button x:Name="connectBtn"
+                        Content="Connect"
+                        Padding="5"
+                        Background="Orange"
+                        Foreground="White"
+                        Margin="5"
+                        FontSize="13"
+                        MinWidth="100"
+                        VerticalAlignment="Center" />
+            </StackPanel>
+        </StackPanel>
+
+        <Border Grid.Column="0"
+                Grid.Row="1"
+                Margin="10">
+            <DockPanel HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Width="300"
+                       LastChildFill="False">
+                <Button x:Name="upBtn"
+                        DockPanel.Dock="Top"
+                        FontFamily="Segoe MDL2 Assets"
+                        Content=""
+                        Margin="10"
+                        Height="90"
+                        Foreground="White"
+                        Background="Crimson"
+                        Style="{StaticResource JoystickButtonStyle}" />
+                <Button x:Name="downBtn"
+                        DockPanel.Dock="Bottom"
+                        Margin="10"
+                        FontFamily="{Binding ElementName=upBtn,Path=FontFamily}"
+                        Content=""
+                        Height="{Binding ElementName=upBtn,Path=Height}"
+                        Foreground="White"
+                        Background="LightGreen"
+                        Style="{StaticResource JoystickButtonStyle}" />
+                <Button x:Name="rightBtn"
+                        DockPanel.Dock="Right"
+                        FontFamily="{Binding ElementName=upBtn,Path=FontFamily}"
+                        Content=""
+                        Height="{Binding ElementName=upBtn,Path=Height}"
+                        Foreground="White"
+                        Background="HotPink"
+                        Style="{StaticResource JoystickButtonStyle}" />
+                <Button x:Name="leftBtn"
+                        DockPanel.Dock="Left"
+                        FontFamily="{Binding ElementName=upBtn,Path=FontFamily}"
+                        Content=""
+                        Height="{Binding ElementName=upBtn,Path=Height}"
+                        Foreground="White"
+                        Background="BlueViolet"
+                        Style="{StaticResource JoystickButtonStyle}" />
+            </DockPanel>
+        </Border>
+        <Border Grid.Column="2"
+                Grid.Row="1"
+                Margin="10">
+            <DockPanel  HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Width="300"
+                        LastChildFill="False">
+                <Button x:Name="aBtn"
+                        FontFamily="Arial Black"
+                        DockPanel.Dock="Top"
+                        Content="A"
+                        Height="90"
+                        Foreground="White"
+                        Background="Gold"
+                        Style="{StaticResource JoystickButtonStyle}" />
+                <Button x:Name="cBtn"
+                        FontFamily="{Binding ElementName=aBtn,Path=FontFamily}"
+                        DockPanel.Dock="Bottom"
+                        Content="C"
+                        Height="{Binding ElementName=aBtn,Path=Height}"
+                        Foreground="White"
+                        Background="DodgerBlue"
+                        Style="{StaticResource JoystickButtonStyle}" />
+                <Button x:Name="bBtn"
+                        FontFamily="{Binding ElementName=aBtn,Path=FontFamily}"
+                        DockPanel.Dock="Right"
+                        Content="B"
+                        Height="{Binding ElementName=aBtn,Path=Height}"
+                        Foreground="White"
+                        Background="Firebrick"
+                        Style="{StaticResource JoystickButtonStyle}" />
+                <Button x:Name="dBtn"
+                        FontFamily="{Binding ElementName=aBtn,Path=FontFamily}"
+                        DockPanel.Dock="Left"
+                        Content="D"
+                        Height="{Binding ElementName=aBtn,Path=Height}"
+                        Foreground="White"
+                        Background="BurlyWood"
+                        Style="{StaticResource JoystickButtonStyle}" />
+            </DockPanel>
+        </Border>
+        <Border Grid.Row="1"
+                Grid.Column="1"
+                VerticalAlignment="Center"
+                Margin="10">
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                <Button x:Name="startBtn"
+                        FontFamily="Arial Black"
+                        DockPanel.Dock="Top"
+                        Content="Start"
+                        Height="90"
+                        Foreground="White"
+                        Background="Gold"
+                        Margin="5"
+                        Style="{StaticResource JoystickButtonStyle}" />
+                <Button x:Name="selectBtn"
+                        Margin="5"
+                        FontFamily="{Binding ElementName=startBtn,Path=FontFamily}"
+                        DockPanel.Dock="Bottom"
+                        Content="Select"
+                        Height="{Binding ElementName=startBtn,Path=Height}"
+                        Foreground="White"
+                        Background="DodgerBlue"
+                        Style="{StaticResource JoystickButtonStyle}" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
